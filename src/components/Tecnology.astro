@@ -1,0 +1,84 @@
+---
+import Tailwind from "./icons/Tailwind.astro";
+import Java from "./icons/Java.astro";
+import JUnit5 from "./icons/JUnit5.astro";
+import Spring from "./icons/Spring.astro";
+import Docker from "./icons/Docker.astro";
+import MySQL from "./icons/MySQL.astro";
+import React from "./icons/React.astro";
+import JavaScritp from "./icons/JavaScritp.astro";
+
+// Definir las etiquetas con iconos y clases
+const TAGSBACK = [
+  {
+    name: "Java",
+    class: "bg-[#9a4a00] text-white",
+    icon: Java,
+  },{
+    name: "MySQL",
+    class: "bg-[#00171e] text-white",
+    icon: MySQL,
+  },{
+    name: "Spring",
+    class: "bg-[#3d7029] text-white",
+    icon: Spring,
+  },{
+    name: "JUnit-Mockito",
+    class: "bg-[#8f3430] text-white",
+    icon: JUnit5,
+  }, {
+    name: "Docker",
+    class: "bg-[#005e95] text-white",
+    icon: Docker,
+  },
+  
+];
+
+
+const TAGFRONT = [
+   {
+    name: "JavaScript",
+    class: "bg-[#a39535] text-white",
+    icon: JavaScritp,
+  },{
+    name: "React",
+    class: "bg-[#0c8292] text-white",
+    icon: React,
+  },{
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+
+];
+---
+
+<div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {TAGSBACK.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-5" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+    </div>
+    <div class="flex flex-wrap mt-2">
+        <ul class="flex flex-row mb-2 gap-x-2">
+          {TAGFRONT.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-5" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+    </div>
+

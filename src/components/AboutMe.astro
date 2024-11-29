@@ -1,0 +1,30 @@
+---
+const personalImageAlt = "Rigoberto Miranda";
+---
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Soy una persona apasionada por la programación y la tecnología. Me encanta encontrar nuevas formas de <strong>hacer magia con la codificación</strong> y dar vida a ideas innovadoras.
+    </p>
+
+    <p>
+      Mi enfoque no se limita solo a la escritura de código, sino también a la <strong>exploración de las últimas tendencias</strong>, el análisis de problemas complejos y la creación de soluciones prácticas que inspiren y resuelvan desafíos del mundo real.
+    </p>
+
+    <p>
+      Creo en el poder de la tecnología para transformar ideas en realidades y en el impacto positivo que la programación puede generar en la vida de las personas.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="/me.webp"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
+    style="object-position: 50% 50%"
+  >
+</article>

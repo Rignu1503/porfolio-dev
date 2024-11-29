@@ -1,0 +1,38 @@
+---
+import type { ACTION_ERROR_CODES, ACTION_QUERY_PARAMS } from "astro:actions"
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE = [
+    {
+        "title": "xxxxxxx",
+        "company": "Riwi Be a Coder",
+        "dates": "2023 -2024",
+        "description": "Desarrollo de software con enfoque en back-end",
+    },
+    {
+        "title": "Software Engineer",
+        "company": "Universidad Pontificia Bolivariana",
+        "dates": "2022-2024",
+        "description": "T.L en Programación de Software."
+    },
+    {
+        "title": "xxxxxxx",
+        "company": "Universidad Pontificia Bolivariana",
+        "dates": "2022-2022",
+        "description": "Diplomado en Java/Python"
+    }
+
+]
+---
+<ol class="relative border-s border-gray-200 ml-3">  
+    
+    {
+        EXPERIENCE.map(experience =>(
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experience} />
+            </li>
+        ))
+    }
+
+</ol>
+
