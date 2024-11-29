@@ -52,33 +52,33 @@ const TAGFRONT = [
 
 ];
 ---
+<div class="flex flex-wrap mt-2">
+  <ul class="flex flex-wrap gap-x-2 mb-2">
+    {TAGSBACK.map((tag) => (
+      <li>
+        <span
+          class={`flex gap-2 m-1 rounded-full text-s ${tag.class} py-1 px-2`}
+        >
+          <tag.icon class="size-5" />
+          {tag.name}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>
 
 <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-          {TAGSBACK.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-5" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-    </div>
-    <div class="flex flex-wrap mt-2">
-        <ul class="flex flex-row mb-2 gap-x-2">
-          {TAGFRONT.map((tag) => (
-            <li>
-              <span
-                class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2 `}
-              >
-                <tag.icon class="size-5" />
-                {tag.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-    </div>
+  <ul class="flex flex-wrap gap-x-2 mb-2">
+    {TAGFRONT.map((tag) => (
+      <li>
+        <span
+          class={`flex gap-x-2 rounded-full text-s ${tag.class} py-1 px-2`}
+        >
+          <tag.icon class="size-5" />
+          {tag.name}
+        </span>
+      </li>
+    ))}
+  </ul>
+</div>
 
