@@ -2,9 +2,13 @@
 import GitHub from "./icons/GitHub.astro"
 import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
+import SpringBoot from "./icons/SpringBoot.astro"
+import SpringSecurity from "./icons/SpringSecurity.astro"
 import Link from "./icons/Link.astro"
 import JavaScript from "./icons/JavaScritp.astro"
 import LinkButton from "./LinkButton.astro"
+import Spring from "./icons/Spring.astro"
+import MySQL from "./icons/MySQL.astro"
 
 const TAGS = {
   NEXT: {
@@ -22,24 +26,53 @@ const TAGS = {
     class: "bg-[#bdb777] text-white",
     icon: JavaScript,
   },
+  SPRINGBOOT: {
+    name: "Spring Boot",
+    class: "bg-[#466f12] text-white",
+    icon: SpringBoot,
+  },
+  SPRINSECURITY: {
+    name: "Spring Security",
+    class: "bg-[#466f12] text-white",
+    icon: SpringSecurity,
+  },
+  MYSQL:{
+    
+    name: "MySQL",
+    class: "bg-[#00171e] text-white",
+    icon: MySQL,
+  },
+  
+
 }
 const PROJECTS = [
   {
     title: "Edatech - Desing & development",
+    type: "Proyecto front-end",
     description:
-      "es una startup especializada en desarrollo web y diseño, creada para ofrecer soluciones digitales eficientes y visualmente atractivas.. Creado desde cero con js, CSS y Tailwind CSS.",
+      "Startup especializada en desarrollo web y diseño, creada para ofrecer soluciones digitales eficientes y visualmente atractivas.. Creado con js, CSS y Tailwind CSS.",
     link: "https://rignu1503.github.io/EdaTech/",
     github: "https://github.com/Rignu1503/EdaTech",
     image: "/projects/edatech.webp",
     tags: [TAGS.JS, TAGS.TAILWIND],
   },
- 
+  {
+    title: "Local Storage",
+    type: "Proyecto back-end",
+    description:
+      "Sistema backend para la gestión de inventarios y órdenes de compra, desarrollado con multiples herramientas de Spring con enfoque en eficiencia y escalabilidad.",
+    link: null,
+      documentation: "/localStorage",
+    github: "https://github.com/Rignu1503/localStorageProyect",
+    image: "/projects/localStorage.webp",
+    tags: [ TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.SPRINSECURITY],
+  },
 ]
 ---
 
 <div class="flex flex-col gap-y-16">
   {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    PROJECTS.map(({ image, title, type, description, tags, link,documentation, github }) => (
     <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
   <div class="w-full md:w-1/2">
     <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
@@ -51,6 +84,9 @@ const PROJECTS = [
     <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
       {title}
     </h3>
+    <h5 class="text-l text-gray-800 dark:text-gray-100">
+      {type}
+    </h5>
     <div class="flex flex-wrap mt-2">
       <ul class="flex flex-row mb-2 gap-x-2">
           {tags.map((tag) => (
@@ -74,10 +110,16 @@ const PROJECTS = [
               
             </LinkButton>
           )}
-          {link && (
+          {(link || null) && (
             <LinkButton href={link}>
               <Link class="size-4" />
               Preview
+            </LinkButton>
+          )}
+          {documentation && (
+            <LinkButton href={documentation}>
+              <Link class="size-4" />
+              Documentación
             </LinkButton>
           )}
         </footer>

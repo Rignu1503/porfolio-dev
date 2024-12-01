@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import TitleSection from "../components/TitleSection.astro";
+import Tools from "../components/icons/Tools.astro";
+import TechnologiesUsed from "../components/componentsProyect/technologiesUsed.astro";
+import ProjectArchitecture from "../components/componentsProyect/ProjectArchitecture.astro";
+---
+<Layout title="localStorage - Página inicial en Astro" description="Ejemplo de una página inicial creada con Astro">
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
+      <section class="my-10">
+        <h1 class="text-4xl font-bold">Local Storage</h1>
+        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+          Este proyecto es un sistema backend para la gestión de inventarios y órdenes de compra. 
+          Su objetivo es optimizar y automatizar procesos clave, como el control de productos, 
+          proveedores y la administración de pedidos, facilitando la toma de decisiones y mejorando
+          la eficiencia operativa.
+        </p>
+        <h3 class="text-xl font-bold mt-4">Proposito</h3>
+        <p class=" text-lg text-gray-600 dark:text-gray-400">
+          El propósito es crear un sistema robusto y escalable para manejar las operaciones de compras
+           y el control de inventario de manera segura, eficiente y fácil de usar, mejorando la toma de 
+           decisiones y la visibilidad en tiempo real de las existencias y órdenes.
+        </p>
+      </section>
+    </SectionContainer>
+
+    <div class="space-y-24">
+
+    
+    <SectionContainer>
+      <TitleSection>
+          <Tools class="size-7" />
+          Tecnologías utlizadas
+         </TitleSection>
+          <TechnologiesUsed/>
+    </SectionContainer>
+
+    <SectionContainer>
+      <TitleSection>
+          <Tools class="size-7" />
+          Arquitectura y Diseño
+         </TitleSection>
+          <ProjectArchitecture/>
+    </SectionContainer>
+
+
+    </div>
+
+
+    
+  </main>
+
+
+</Layout>
