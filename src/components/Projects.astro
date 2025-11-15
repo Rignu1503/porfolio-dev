@@ -1,22 +1,17 @@
 ---
 import GitHub from "./icons/GitHub.astro"
-import NextJS from "./icons/NextJS.astro"
 import Tailwind from "./icons/Tailwind.astro"
 import SpringBoot from "./icons/SpringBoot.astro"
 import SpringSecurity from "./icons/SpringSecurity.astro"
 import Link from "./icons/Link.astro"
 import JavaScript from "./icons/JavaScritp.astro"
 import LinkButton from "./LinkButton.astro"
-import Spring from "./icons/Spring.astro"
 import MySQL from "./icons/MySQL.astro"
 import Angular from "./icons/Angular.astro"
+import Kubernetes from "./icons/Kubernetes.astro"
+import PostgreSQL from "./icons/PostgreSQL.astro"
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
   TAILWIND: {
     name: "Tailwind CSS",
     class: "bg-[#003159] text-white",
@@ -38,19 +33,49 @@ const TAGS = {
     icon: SpringSecurity,
   },
   MYSQL:{
-    
     name: "MySQL",
     class: "bg-[#00171e] text-white",
     icon: MySQL,
+  },POSTGRES:{
+    name: "PostSQL",
+    class: "bg-[#183044] text-white",
+    icon: PostgreSQL,
   }, ANGULAR:{
     name: "Angular",
     class: "bg-[#a70e41] text-white",
     icon: Angular,
-  },
+  },KUBERNETES:{
+    name: "Kubernetes",
+    class: "bg-[#005f99] text-white",
+    icon: Kubernetes,
+  }
   
 
 }
 const PROJECTS = [
+    {
+    title: "EnerTrack",
+    type: "Proyecto Full Stack",
+    description: "EnerTrack es una plataforma web que permite gestionar la producción de energía renovable a nivel mundial.",
+    link: "",
+    documentation: "/enerTrack",
+    githubBack: "https://github.com/EnerTrack/EnerTrack-back", 
+    githubFront: "https://github.com/EnerTrack/EnerTrack-front", 
+    image: "/projects/eneerTrack.webp",
+    tags: [TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.SPRINSECURITY, TAGS.KUBERNETES, TAGS.ANGULAR ,TAGS.TAILWIND, TAGS.POSTGRES ],
+  },
+  {
+    title: "Local Storage",
+    type: "Proyecto back-end",
+    description:
+      "Sistema backend para la gestión de inventarios y órdenes de compra, con enfoque en eficiencia y escalabilidad.",
+    link: "https://local-storage-dun.vercel.app/products/list",
+    documentation: "/localStorage",
+    githubBack: "https://github.com/Rignu1503/localStorageProyect", 
+    githubFront: "https://github.com/Rignu1503/localStorageFront", 
+    image: "/projects/localStorage.webp",
+    tags: [TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.ANGULAR ,TAGS.TAILWIND, ],
+  },
   {
     title: "Edatech - Desing & development",
     type: "Proyecto front-end",
@@ -60,18 +85,6 @@ const PROJECTS = [
     githubFront: "https://github.com/Rignu1503/EdaTech",
     image: "/projects/edatech.webp",
     tags: [TAGS.JS, TAGS.TAILWIND],
-  },
-  {
-    title: "Local Storage",
-    type: "Proyecto Full Stack",
-    description:
-      "Sistema backend para la gestión de inventarios y órdenes de compra, con enfoque en eficiencia y escalabilidad.",
-    link: "https://local-storage-dun.vercel.app/products/list",
-    documentation: "/localStorage",
-    githubBack: "https://github.com/Rignu1503/localStorageProyect", 
-    githubFront: "https://github.com/Rignu1503/localStorageFront", 
-    image: "/projects/localStorage.webp",
-    tags: [TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.SPRINSECURITY, TAGS.ANGULAR ,TAGS.TAILWIND, ],
   },
 ]
 

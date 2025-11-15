@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import TitleSection from "../components/TitleSection.astro";
+import Tools from "../components/icons/Tools.astro";
+import TechnologiesUsed from "../components/componentsProyect/technologiesUsed.astro";
+import ProjectArchitecture from "../components/componentsProyect/ProjectArchitecture.astro";
+---
+
+<Layout
+title="Proyectos - Página inicial en Astro"
+description="Proyectos creados con Astro"
+>
+<main class="px-4">
+    <SectionContainer class="py-16 md:py-10">
+        <section class="my-10">
+            <h1 class="text-4xl font-bold">EnerTrack</h1>
+            
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                EnerTrack es una plataforma web para gestionar la producción de
+                energía renovable a nivel mundial. Permite administrar tipos de
+                energía, registros de consumo, métricas ambientales y análisis de
+                reducción de emisiones. El sistema está diseñado como una arquitectura
+                de microservicios escalable para soportar grandes volúmenes de datos.
+            </p>
+            
+            <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 font-bold">
+                Este proyecto está siendo desarrollado.
+            </p>
+            
+            <br />
+            <h3 class="text-xl font-bold mt-4">Funcionalidades destacadas</h3>
+            
+            <ul
+            class="list-disc pl-6 text-lg text-gray-600 dark:text-gray-400 space-y-4"
+            >
+            <li>
+                <strong>Gestión de usuarios y autenticación:</strong>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>Registro, login y control de accesos.</li>
+                    <li>Autenticación basada en tokens JWT y OAuth2.</li>
+                    <li>Verificación de correo electrónico.</li>
+                </ul>
+            </li>
+            
+            <li>
+                <strong>Registros energéticos:</strong>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>Registro de producción.</li>
+                    <li>Cálculo automático por pais en reducción de emisiones.</li>
+                    <li>Tabla con los tipos de energía mas usados.</li>
+                </ul>
+            </li>
+            
+            <li>
+                <strong>Microservicios:</strong>
+                <ul class="list-disc pl-6 space-y-1">
+                    <li>Microservicio de usuarios.</li>
+                    <li>Microservicio de energía.</li>
+                    <li>Microservicio de analisis de datos.</li>
+                    <li>Microservicio de autenticación.</li>
+                </ul>  
+            </li>
+            
+            <SectionContainer>
+              <TitleSection>
+                <Tools class="size-7" />
+                Arquitectura y Diseño
+              </TitleSection>
+              <div>
+                <img
+                  src="/enerTrack-architecture.webp"
+                  alt="enertrack architecture Image"
+                />
+              </div>
+            </SectionContainer>
+            <li>
+                <strong>Dashboards y reportes:</strong>
+            <ul class="list-disc pl-6 space-y-1">
+              <li>Métricas de emisiones.</li>
+              <li>Gráficos exportables.</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </SectionContainer>
+
+    <!-- Secciones globales -->
+    <div class="space-y-24">
+      <SectionContainer>
+        <TitleSection>
+          <Tools class="size-7" />
+          Tecnologías utilizadas
+        </TitleSection>
+
+        <div>
+          <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+            Back End
+          </h2>
+          <ul
+            class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"
+          >
+            <li>Spring Boot.</li>
+            <li>Spring Security.</li>
+            <li>Spring Cloud.</li>
+            <li>PostSQL.</li>
+            <li>MySQL.</li>
+            <li>Docker.</li>
+            <li>Kubernetes.</li>
+            <li>Angular.</li>
+          </ul>
+        </div>
+
+        <div class="mt-2">
+          <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+            Front End
+          </h2>
+          <ul
+            class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400"
+          >
+            <li>Angular.</li>
+            <li>Tailwind CSS.</li>
+          </ul>
+        </div>
+      </SectionContainer>
+
+    </div>
+  </main>
+</Layout>
