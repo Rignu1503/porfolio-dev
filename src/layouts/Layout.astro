@@ -37,6 +37,21 @@ const { description, title } = Astro.props
     <Header />
     <slot />
     <Footer />
+    <script>
+      import { initCarousels } from "flowbite/lib/esm/components/carousel/index.js"
+
+      function onPageLoad() {
+        initCarousels()
+
+        const { hash } = window.location
+        if (!hash) return
+        requestAnimationFrame(() => {
+          document.querySelector(hash)?.scrollIntoView({ block: "start" })
+        })
+      }
+
+      document.addEventListener("astro:page-load", onPageLoad)
+    </script>
     <style is:global>
       :root {
         color-scheme: light dark;

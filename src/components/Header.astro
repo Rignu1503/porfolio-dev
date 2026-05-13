@@ -1,22 +1,24 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro"
 
-const navItems = [
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/"
+const onHome = pathname === "/"
 
+const navItems = [
   {
     title: "Educación",
-    label: "Educación",
-    url: "/#educación",
+    label: "educación",
+    hash: "educación",
   },
   {
     title: "Proyectos",
     label: "proyectos",
-    url: "/#proyectos",
+    hash: "proyectos",
   },
   {
     title: "Sobre mí",
     label: "sobre-mi",
-    url: "/#sobre-mi",
+    hash: "sobre-mi",
   },
   {
     title: "Contacto",
@@ -33,15 +35,25 @@ const navItems = [
     class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
   >
     {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
+      navItems.map((link) =>
+        "hash" in link ? (
+          <a
+            class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
+            aria-label={link.label}
+            href={onHome ? `#${link.hash}` : `/#${link.hash}`}
+          >
+            {link.title}
+          </a>
+        ) : (
+          <a
+            class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
+            aria-label={link.label}
+            href={link.url}
+          >
+            {link.title}
+          </a>
+        )
+      )
     }
     <ThemeToggle />
   </nav>
@@ -50,19 +62,28 @@ const navItems = [
 <script>
   document.addEventListener("astro:page-load", () => {
     const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const navLinks = document.querySelectorAll("header nav a")
 
-    const callback = (entries: any[]) => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
-            } else {
-              item.classList.remove("text-blue-500")
-            }
-          })
-        }
+        if (!entry.isIntersecting) return
+        const id = entry.target.id
+        navLinks.forEach((item) => {
+          const href = item.getAttribute("href") || ""
+          if (href.startsWith("mailto:")) return
+          let hash = ""
+          if (href.startsWith("#")) {
+            hash = decodeURIComponent(href.slice(1))
+          } else if (href.includes("#")) {
+            const part = href.split("#")[1]
+            hash = decodeURIComponent(part || "")
+          }
+          if (hash === id) {
+            item.classList.add("text-blue-500")
+          } else if (hash) {
+            item.classList.remove("text-blue-500")
+          }
+        })
       })
     }
 
@@ -76,7 +97,6 @@ const navItems = [
       observer.observe(section)
     })
 
-    // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
         observer.disconnect()

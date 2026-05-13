@@ -1,5 +1,7 @@
 ---
 const currentYear = new Date().getFullYear()
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/"
+const onHome = pathname === "/"
 ---
 
 <footer
@@ -10,13 +12,13 @@ const currentYear = new Date().getFullYear()
   >
     <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
       >© {currentYear}
-      <a href="/#" class="hover:underline">Rigoberto M.</a> Derechos reservados
+      <a href={onHome ? "#" : "/"} class="hover:underline">Rigoberto M.</a> Derechos reservados
     </span>
     <ul
       class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href={onHome ? "#sobre-mi" : "/#sobre-mi"} class="hover:underline me-4 md:me-6">Sobre mí</a>
       </li>
       <li>
         <a id="contacto" href="mailto:rigoberto.miranda1503@gmail.com" class="hover:underline"

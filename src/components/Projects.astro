@@ -1,15 +1,16 @@
 ---
-import GitHub from "./icons/GitHub.astro"
-import Tailwind from "./icons/Tailwind.astro"
-import SpringBoot from "./icons/SpringBoot.astro"
-import SpringSecurity from "./icons/SpringSecurity.astro"
-import Link from "./icons/Link.astro"
-import JavaScript from "./icons/JavaScritp.astro"
-import LinkButton from "./LinkButton.astro"
-import MySQL from "./icons/MySQL.astro"
-import Angular from "./icons/Angular.astro"
-import Kubernetes from "./icons/Kubernetes.astro"
-import PostgreSQL from "./icons/PostgreSQL.astro"
+import GitHub from "./icons/GitHub.astro";
+import Tailwind from "./icons/Tailwind.astro";
+import SpringBoot from "./icons/SpringBoot.astro";
+import SpringSecurity from "./icons/SpringSecurity.astro";
+import Link from "./icons/Link.astro";
+import JavaScript from "./icons/JavaScritp.astro";
+import LinkButton from "./LinkButton.astro";
+import MySQL from "./icons/MySQL.astro";
+import Angular from "./icons/Angular.astro";
+import Kubernetes from "./icons/Kubernetes.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import Badge from "./Badge.astro";
 
 const TAGS = {
   TAILWIND: {
@@ -32,37 +33,48 @@ const TAGS = {
     class: "bg-[#466f12] text-white",
     icon: SpringSecurity,
   },
-  MYSQL:{
+  MYSQL: {
     name: "MySQL",
     class: "bg-[#00171e] text-white",
     icon: MySQL,
-  },POSTGRES:{
-    name: "PostSQL",
+  },
+  POSTGRES: {
+    name: "PostgreSQL",
     class: "bg-[#183044] text-white",
     icon: PostgreSQL,
-  }, ANGULAR:{
+  },
+  ANGULAR: {
     name: "Angular",
     class: "bg-[#a70e41] text-white",
     icon: Angular,
-  },KUBERNETES:{
+  },
+  KUBERNETES: {
     name: "Kubernetes",
     class: "bg-[#005f99] text-white",
     icon: Kubernetes,
-  }
-  
+  },
+};
 
-}
 const PROJECTS = [
-    {
+  {
     title: "EnerTrack",
     type: "Proyecto Full Stack",
-    description: "EnerTrack es una plataforma web que permite gestionar la producción de energía renovable a nivel mundial.",
+    description:
+      "Plataforma web que permite gestionar la producción de energía renovable a nivel mundial con arquitectura de microservicios.",
     link: "",
     documentation: "/enerTrack",
-    githubBack: "https://github.com/EnerTrack/EnerTrack-back", 
-    githubFront: "https://github.com/EnerTrack/EnerTrack-front", 
+    githubBack: "https://github.com/EnerTrack/EnerTrack-back",
+    githubFront: "https://github.com/EnerTrack/EnerTrack-front",
     image: "/projects/eneerTrack.webp",
-    tags: [TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.SPRINSECURITY, TAGS.KUBERNETES, TAGS.ANGULAR ,TAGS.TAILWIND, TAGS.POSTGRES ],
+    tags: [
+      TAGS.MYSQL,
+      TAGS.SPRINGBOOT,
+      TAGS.SPRINSECURITY,
+      TAGS.KUBERNETES,
+      TAGS.ANGULAR,
+      TAGS.TAILWIND,
+      TAGS.POSTGRES,
+    ],
   },
   {
     title: "Local Storage",
@@ -71,10 +83,10 @@ const PROJECTS = [
       "Sistema backend para la gestión de inventarios y órdenes de compra, con enfoque en eficiencia y escalabilidad.",
     link: "https://local-storage-dun.vercel.app/products/list",
     documentation: "/localStorage",
-    githubBack: "https://github.com/Rignu1503/localStorageProyect", 
-    githubFront: "https://github.com/Rignu1503/localStorageFront", 
+    githubBack: "https://github.com/Rignu1503/localStorageProyect",
+    githubFront: "https://github.com/Rignu1503/localStorageFront",
     image: "/projects/localStorage.webp",
-    tags: [TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.ANGULAR ,TAGS.TAILWIND, ],
+    tags: [TAGS.MYSQL, TAGS.SPRINGBOOT, TAGS.ANGULAR, TAGS.TAILWIND],
   },
   {
     title: "Edatech - Desing & development",
@@ -86,73 +98,195 @@ const PROJECTS = [
     image: "/projects/edatech.webp",
     tags: [TAGS.JS, TAGS.TAILWIND],
   },
-]
-
+];
 ---
-<div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, type, description, tags, link, documentation, githubBack, githubFront }) => (
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-            <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-          </div>
-        </div>
 
-        <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {title}
-          </h3>
-          <h5 class="text-l text-gray-800 dark:text-gray-100">
-            {type}
-          </h5>
-          <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row flex-wrap mb-2 gap-x-2 gap-y-2">
-              {tags.map((tag) => (
-                <li class="flex">
-                  <span
-                    class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
+<div id="projects-carousel" class="relative w-full" data-carousel>
+  <div
+    class="relative isolate h-[min(32rem,85vh)] w-full md:h-[26rem] lg:h-[24rem]"
+  >
+    <div
+      class="relative h-full overflow-hidden rounded-xl border border-gray-200 bg-gray-50/80 shadow-xl dark:border-gray-800 dark:bg-gray-900/40"
+    >
+      {
+        PROJECTS.map(
+          (
+            {
+              image,
+              title,
+              type,
+              description,
+              tags,
+              link,
+              documentation,
+              githubBack,
+              githubFront,
+            },
+            index,
+          ) => (
+            <div
+              class="absolute inset-0 hidden overflow-y-auto"
+              data-carousel-item
+            >
+              <article class="flex h-full min-h-0 flex-col gap-6 px-14 py-6 sm:px-16 md:flex-row md:gap-8 md:px-[4.5rem] md:py-6 lg:gap-8">
+                <div class="w-full shrink-0 md:w-1/2 md:max-w-md">
+                  <div class="relative flex h-48 flex-col items-center overflow-hidden rounded-xl border border-gray-800/30 shadow-lg dark:border-gray-700/50 md:h-full md:min-h-[12rem]">
+                    <img
+                      alt={title}
+                      class="h-full w-full object-cover object-top"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      src={image}
+                    />
+                  </div>
+                </div>
 
+                <div class="flex min-w-0 flex-1 flex-col pb-2 md:max-w-lg md:justify-center">
+                  <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    {title}
+                  </h3>
 
-            <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-            <footer class="flex items-end justify-start flex-wrap mt-4 gap-x-4 gap-y-2">
-              {githubBack && (
-                <LinkButton href={githubBack}>
-                  <GitHub class="size-6" />
-                  BackEnd
-                </LinkButton>
-              )}
-              {githubFront && (
-                <LinkButton href={githubFront}>
-                  <GitHub class="size-6" />
-                  FrontEnd
-                </LinkButton>
-              )}
-              {(link || null) && (
-                <LinkButton href={link}>
-                  <Link class="size-4" />
-                  Preview
-                </LinkButton>
-              )}
-              {documentation && (
-                <LinkButton href={documentation}>
-                  <Link class="size-4" />
-                  Documentación
-                </LinkButton>
-              )}
-            </footer>
-          </div>
-        </div>
-      </article>
-    ))
-  }
+                  <div class="flex items-center">
+                    <span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
+                      <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#60A5FA_0%,#1E3A8A_50%,#60A5FA_100%)]" />
+
+                      <div class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-white bg-[#0F172A] rounded-full backdrop-blur-3xl whitespace-nowrap">
+                        {type}
+                      </div>
+                    </span>
+                  </div>
+
+                  <div class="mt-2 flex flex-wrap">
+                    <ul class="mb-2 flex flex-row flex-wrap gap-x-2 gap-y-2">
+                      {tags.map((tag) => (
+                        <li class="flex">
+                          <span
+                            class={`flex items-center gap-x-2 rounded-full text-xs ${tag.class} px-2 py-1`}
+                          >
+                            <tag.icon class="size-4" />
+                            {tag.name}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div class="mt-2 text-gray-700 dark:text-gray-400">
+                      {description}
+                    </div>
+                    <footer class="mt-4 flex flex-wrap items-end justify-start gap-x-4 gap-y-2">
+                      {githubBack && (
+                        <LinkButton href={githubBack}>
+                          <GitHub class="size-6" />
+                          BackEnd
+                        </LinkButton>
+                      )}
+                      {githubFront && (
+                        <LinkButton href={githubFront}>
+                          <GitHub class="size-6" />
+                          FrontEnd
+                        </LinkButton>
+                      )}
+                      {link ? (
+                        <LinkButton href={link}>
+                          <Link class="size-4" />
+                          Preview
+                        </LinkButton>
+                      ) : null}
+                      {documentation && (
+                        <LinkButton
+                          href={documentation}
+                          newTab={documentation !== "/enerTrack"}
+                        >
+                          <Link class="size-4" />
+                          Documentación
+                        </LinkButton>
+                      )}
+                    </footer>
+                  </div>
+                </div>
+              </article>
+            </div>
+          ),
+        )
+      }
+    </div>
+
+    <button
+      type="button"
+      class="group pointer-events-auto absolute start-0 top-0 z-40 flex h-full w-12 cursor-pointer items-center justify-center sm:w-14 focus:outline-none md:w-16"
+      data-carousel-prev
+      aria-label="Anterior"
+    >
+      <span
+        class="pointer-events-none inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/40 shadow-sm ring-1 ring-gray-900/10 group-hover:bg-white/60 group-focus:outline-none group-focus:ring-4 group-focus:ring-gray-300 dark:bg-gray-800/50 dark:ring-white/10 dark:group-hover:bg-gray-800/70 dark:group-focus:ring-gray-600"
+      >
+        <svg
+          class="h-5 w-5 text-gray-800 rtl:rotate-180 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m15 19-7-7 7-7"></path>
+        </svg>
+        <span class="sr-only">Anterior</span>
+      </span>
+    </button>
+    <button
+      type="button"
+      class="group pointer-events-auto absolute end-0 top-0 z-40 flex h-full w-12 cursor-pointer items-center justify-center sm:w-14 focus:outline-none md:w-16"
+      data-carousel-next
+      aria-label="Siguiente"
+    >
+      <span
+        class="pointer-events-none inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/40 shadow-sm ring-1 ring-gray-900/10 group-hover:bg-white/60 group-focus:outline-none group-focus:ring-4 group-focus:ring-gray-300 dark:bg-gray-800/50 dark:ring-white/10 dark:group-hover:bg-gray-800/70 dark:group-focus:ring-gray-600"
+      >
+        <svg
+          class="h-5 w-5 text-gray-800 rtl:rotate-180 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m9 5 7 7-7 7"></path>
+        </svg>
+        <span class="sr-only">Siguiente</span>
+      </span>
+    </button>
+  </div>
+
+  <div
+    class="mt-4 flex justify-center gap-3 px-2 pb-1 pt-1 rtl:space-x-reverse"
+  >
+    {
+      PROJECTS.map((_, i) => (
+        <button
+          type="button"
+          class="h-3 w-3 shrink-0 rounded-full bg-white/70 ring-1 ring-gray-900/20 hover:bg-white dark:bg-gray-600 dark:ring-white/30 dark:hover:bg-gray-500"
+          aria-current={i === 0 ? "true" : "false"}
+          aria-label={`Proyecto ${i + 1}`}
+          data-carousel-slide-to={i}
+        />
+      ))
+    }
+  </div>
 </div>
 
-
+<style is:global>
+  #projects-carousel [data-carousel-item] {
+    transition: none !important;
+  }
+</style>
