@@ -10,7 +10,6 @@ import MySQL from "./icons/MySQL.astro";
 import Angular from "./icons/Angular.astro";
 import Kubernetes from "./icons/Kubernetes.astro";
 import PostgreSQL from "./icons/PostgreSQL.astro";
-import Badge from "./Badge.astro";
 
 const TAGS = {
   TAILWIND: {
@@ -81,7 +80,7 @@ const PROJECTS = [
     type: "Proyecto back-end",
     description:
       "Sistema backend para la gestión de inventarios y órdenes de compra, con enfoque en eficiencia y escalabilidad.",
-    link: "https://local-storage-dun.vercel.app/products/list",
+    // link: "https://local-storage-dun.vercel.app/products/list",
     documentation: "/localStorage",
     githubBack: "https://github.com/Rignu1503/localStorageProyect",
     githubFront: "https://github.com/Rignu1503/localStorageFront",
@@ -194,7 +193,7 @@ const PROJECTS = [
                       {documentation && (
                         <LinkButton
                           href={documentation}
-                          newTab={documentation !== "/enerTrack"}
+                          newTab={false}
                         >
                           <Link class="size-4" />
                           Documentación
