@@ -14,7 +14,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/onest": "^5.1.0",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.13.0",
+    "astro": "^6.3.7",
     "flowbite": "^4.0.1",
     "porfolio-dev": "file:",
     "tailwindcss": "^3.4.15",
