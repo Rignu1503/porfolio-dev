@@ -19,5 +19,10 @@
     "porfolio-dev": "file:",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "@astrojs/tailwind": {
+      "astro": "$astro"
+    }
   }
 }
