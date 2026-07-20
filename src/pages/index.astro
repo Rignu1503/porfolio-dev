@@ -1,44 +1,36 @@
 ---
-import Layout from "./../layouts/Layout.astro"
-import AboutMe from "./../components/AboutMe.astro"
-import Briefcase from "./../components/icons/Briefcase.astro"
-import CodeIcon from "./../components/icons/Code.astro"
-import Experience from "./../components/Experience.astro"
-import ProfileCheck from "./../components/icons/ProfileCheck.astro"
-import Projects from "./../components/Projects.astro"
-import SectionContainer from "./../components/SectionContainer.astro"
-import Hero from "./../components/Hero.astro"
-import TitleSection from "./../components/TitleSection.astro"
-import Tecnology from "./../components/Tecnology.astro"
-import Tools from "./../components/icons/Tools.astro"
+import Layout from "./../layouts/Layout.astro";
+import AboutMe from "./../components/AboutMe.astro";
+import Briefcase from "./../components/icons/Briefcase.astro";
+import CodeIcon from "./../components/icons/Code.astro";
+import Experience from "./../components/Experience.astro";
+import ProfileCheck from "./../components/icons/ProfileCheck.astro";
+import Projects from "./../components/Projects.astro";
+import SectionContainer from "./../components/SectionContainer.astro";
+import Hero from "./../components/Hero.astro";
+import TitleSection from "./../components/TitleSection.astro";
+import Tecnology from "./../components/Tecnology.astro";
+import Tools from "./../components/icons/Tools.astro";
+import Certificate from "../components/Certificate.astro";
 ---
 
-<Layout title="Porfolio de rigoberto miranda - Desarrollador y programador back-end"
-description=''
+<Layout
+  title="rigoberto miranda - Desarrollador y programador back-end"
+  description=""
 >
-  <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
-      <Hero>
-      </slot>
-    </Hero>
+  <main class="">
+    <SectionContainer id="sobre-mi" class="py-16 md:py-36">
+      <Hero />
     </SectionContainer>
+  </main>
 
-    <div class="space-y-24">
-
-      <SectionContainer id="tecnologias">
-          <TitleSection>
-          <Tools class="size-7" />
-          Tecnologías
-         </TitleSection>
-        <Tecnology/>
-      </SectionContainer>
-
-    <SectionContainer id="educación">
+  <div class="space-y-24">
+    <SectionContainer id="tecnologias">
       <TitleSection>
-        <Briefcase class="size-8" />
-        Educación
+        <Tools class="size-7" />
+        Tecnologías
       </TitleSection>
-      <Experience />
+      <Tecnology />
     </SectionContainer>
 
     <SectionContainer id="proyectos">
@@ -49,13 +41,23 @@ description=''
       <Projects />
     </SectionContainer>
 
-    <SectionContainer id="sobre-mi">
+        <SectionContainer id="certificados">
       <TitleSection>
-        <ProfileCheck class="size-8" />
-        Sobre mí
+        <CodeIcon class="size-7" />
+        Certificaciones destacadas
       </TitleSection>
-      <AboutMe />
+      <Certificate />
     </SectionContainer>
+
+
+    <SectionContainer id="educación">
+      <TitleSection>
+        <Briefcase class="size-8" />
+        Educación
+      </TitleSection>
+      <Experience />
+    </SectionContainer>
+
+    
   </div>
-  </main>
 </Layout>

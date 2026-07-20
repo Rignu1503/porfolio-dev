@@ -1,0 +1,72 @@
+---
+import View from "./icons/View.astro";
+import SocialPill from "./SocialPill.astro";
+
+const certificates = [
+  {
+    id: 1,
+    title: "Finalista hackaton regional",
+    issuer: "Talento Tech",
+    date: "Julio 2026",
+    description:
+      "Reconocimiento obtenido por alcanzar la fase final de una hackathon.",
+    image: "/certification/hackaton.webp",
+    credential:
+      "https://drive.google.com/file/d/12yqKckR4l3VSTyTcIOkL-ZHtHpD7_iTq/view?usp=sharing",
+  },
+  {
+    id: 2,
+    title: "Programación nivel avanzado",
+    issuer: "Talento Tech",
+    date: "Diciembre 2025",
+    description:
+      "Formación intensiva en desarrollo de software y tecnologías modernas.",
+    image: "/certification/programacion_avanzada.webp",
+    credential: "https://drive.google.com/file/d/1XvbkuTpTmrCYEXWMfPy9NS7RSe-GI_1U/view?usp=sharing",
+  },
+  {
+    id: 3,
+    title: "Hábitos de liderazgo",
+    issuer: "Oracle - Alura latam",
+    date: "Abril 2022",
+    description:
+      "Desarrollo de habilidades de liderazgo, comunicación efectiva y trabajo en equipo.",
+    image: "/certification/liderazgo.webp",
+    credential: "https://app.aluracursos.com/certificate/c07e92a1-1dc4-43d3-8f5e-2dd04e5332cd?lang",
+  },
+];
+---
+
+<section id="certificates" class="py-20">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        certificates.map((certificate) => (
+          <article class="bg-base-200 rounded-xl shadow-lg overflow-hidden ">
+            <img
+              src={certificate.image}
+              alt={certificate.title}
+              class="w-full h-52 object-cover"
+            />
+
+            <div class="p-6">
+              <h3 class="text-2xl font-semibold">{certificate.title}</h3>
+
+              <p class="text-primary mt-1">{certificate.issuer}</p>
+
+              <p class="text-sm opacity-70 mb-4">{certificate.date}</p>
+
+              <p class="mb-6">{certificate.description}</p>
+
+           
+              <SocialPill href={certificate.credential} target="_blank">
+                <View/>
+                Ver certificado
+              </SocialPill>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
